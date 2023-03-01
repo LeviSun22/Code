@@ -76,7 +76,7 @@ class dqnylz(nn.Module):
         Q_batch=self.current_net(currentState).to(torch.float32)
         # print(Q_batch)
         # print(torch.max(Q_batch,axis=1).values)
-        # print((1-np.array(minibatch)[:,4])) # 全是1，没用
+        # print((1-np.array(minibatch)[:,4])) 
 
         Q_target_batch=torch.tensor(reward_batch).to(torch.float32) + self.config.gamma*torch.max(Q_batch,axis=1).values.to(torch.float32)
         Q_batch_1=torch.max(Q_batch,axis=1).values.to(torch.float32)
